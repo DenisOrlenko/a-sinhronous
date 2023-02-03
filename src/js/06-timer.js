@@ -12,13 +12,13 @@ class Timer {
     this.isActive = false;
     this.onTick = onTick;
 
-    this.init();
+    // this.init();
   }
 
-  init() {
-    const time = this.getTimeComponents(0);
-    this.onTick(time);
-  }
+  // init() {
+  //   const time = this.getTimeComponents(0);
+  //   this.onTick(time);
+  // }
 
   start() {
     if (this.isActive) {
@@ -40,7 +40,7 @@ class Timer {
   stop() {
     clearInterval(this.intervalId);
     this.isActive = false;
-    const time = this.getTimeComponents(0);
+    // const time = this.getTimeComponents(0);
     this.onTick(time);
   }
 
@@ -50,12 +50,12 @@ class Timer {
    * - Возвращает обьект со свойствами hours, mins, secs
    * - Адская копипаста со стека 💩
    */
-  getTimeComponents(time) {
+  getTimeComponents(ms) {
     const hours = this.pad(
-      Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
     );
-    const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
-    const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
+    const mins = this.pad(Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60)));
+    const secs = this.pad(Math.floor((ms % (1000 * 60)) / 1000));
 
     return { hours, mins, secs };
   }
