@@ -9,6 +9,28 @@
   <body>
     <p><a href="index.html">На главную</a></p>
 
+    <input type="text" id="datetime-picker" />
+    <button timer-btn type="button" data-start>Start</button>
+
+    <div class="timer">
+      <div class="field">
+        <span class="value" data-days>00</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="field">
+        <span class="value" data-hours>00</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="field">
+        <span class="value" data-minutes>00</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="field">
+        <span class="value" data-seconds>00</span>
+        <span class="label">Seconds</span>
+      </div>
+    </div>
+
     <script src="js/01-timeout.js"></script>
   </body>
 </html>
