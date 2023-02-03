@@ -437,8 +437,10 @@ class Timer {
     // отложенная ф-я прекращается вызываться (очищается)
     clearInterval(this.intervalId);
     this.isActive = false;
+    // обнуление времени при нажатии на стоп
+    const timeReset = this.convertMs(0);
     // сохранение на интерфейсе данных при нажатии стоп
-    this.onTick(timeComponents);
+    this.onTick(timeReset);
   }
 
   // из ф-ии делаю метод класса
