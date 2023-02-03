@@ -18,6 +18,10 @@ import '../css/common.css';
 //   console.log(date2 - date1);
 // }, 3000);
 //
+//
+//
+//
+
 // Задача
 // 1
 // const timer = {
