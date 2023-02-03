@@ -417,7 +417,17 @@ class Timer {
     this.intervalId = null;
     this.isActive = false;
     this.onTick = onTick;
+
+    // вызов метода
+    this.init()
   }
+
+  // При первой загрузке - будет отображаться интерфейс с 00:00:00
+  init() {
+    const initTime = this.convertMs(0);
+    this.onTick(initTime);
+  }
+
   start() {
     if (this.isActive) {
       return;
@@ -479,15 +489,21 @@ const timer = new Timer({
   onTick: updateClockface,
 });
 
-
+// вызов метода обьекта через ф-ю
 refs.startBtn.addEventListener('click', () => {
   timer.start();
 });
-// Вешаю слушатель события на stopBtn и при клике на кнопку вызываю timer.stop
+// вызов метода обьекта через ф-ю () => { }
 refs.stopBtn.addEventListener('click', () => {
   timer.stop();
 });
 
+// вызов метода обьекта ссылкой на ф-ю (КОЛБЕК) -
+// метод timer.start при использовании метода addEventListener = будет ссылаться на обьект слушателя(startBtn),
+// поэтому для привязки обьекта, метод которого мы хотим вызвать - дополнительно используем метод
+// refs.startBtn.addEventListener('click', timer.start.bind(timer));
+// refs.stopBtn.addEventListener('click', timer.stop.bind(timer));
+//
 // отрисовую интерфейс - т.е. вывожу на польз. интерфейс рез-т отложенной ф-ии с помощью ф-ии updateClockface
 // подставляю значение времени в параметр
 function updateClockface({ days, hours, minutes, seconds }) {

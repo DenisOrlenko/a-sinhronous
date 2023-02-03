@@ -12,13 +12,13 @@ class Timer {
     this.isActive = false;
     this.onTick = onTick;
 
-    // this.init();
+    this.init();
   }
 
-  // init() {
-  //   const time = this.getTimeComponents(0);
-  //   this.onTick(time);
-  // }
+  init() {
+    const time = this.getTimeComponents(0);
+    this.onTick(time);
+  }
 
   start() {
     if (this.isActive) {
