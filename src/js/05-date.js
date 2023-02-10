@@ -501,6 +501,7 @@ refs.stopBtn.addEventListener('click', () => {
 // вызов метода обьекта ссылкой на ф-ю (КОЛБЕК) -
 // метод timer.start при использовании метода addEventListener = будет ссылаться на обьект слушателя(startBtn),
 // поэтому для привязки обьекта, метод которого мы хотим вызвать - дополнительно используем метод
+//
 // refs.startBtn.addEventListener('click', timer.start.bind(timer));
 // refs.stopBtn.addEventListener('click', timer.stop.bind(timer));
 //
